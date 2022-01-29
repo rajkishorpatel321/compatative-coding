@@ -1,0 +1,55 @@
+
+
+package Test;
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Solution {
+	public static void main(String[] args) throws java.lang.Exception {
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		for (int i = 0; i < sc.nextInt(); i++) {
+			int arrLength = sc.nextInt();
+			int subLength = sc.nextInt();
+			ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+			int len = arrLength/subLength;
+			for (int j = 0; j < len; j++) {
+				list.add(new ArrayList<Integer>());
+				for (int k = 0; k < subLength; k++) {
+					list.get(j).add(sc.nextInt());
+				}
+			}
+			for(int j = 0;j<arrLength%subLength;j++) {
+				if(j==0)
+					list.add(new ArrayList<Integer>());
+				list.get(len).add(sc.nextInt());
+			}
+			Stack<Integer> stack = new Stack<>();
+			for (ArrayList<Integer> j : list) {
+				stack.add(Collections.max(j));
+			}
+			if (!(stack.isEmpty())) {
+				boolean flag=true;
+				int result = stack.pop();
+//				System.out.println(stack.size());
+				if(!stack.isEmpty()) {
+					for(int j:stack) {
+//						System.out.println(j);
+						result = (result&j);
+//						System.out.println(result);
+					}
+				}
+				else {
+					System.out.println(result);
+					flag = false;
+				}
+				if(flag){
+					System.out.println(result);
+				}
+			}
+
+		}
+
+	}
+}
