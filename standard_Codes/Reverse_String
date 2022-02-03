@@ -1,0 +1,27 @@
+package Test;
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Solution {
+	public static void main(String []args) {
+		char[] a = {'a','b','c','d'};
+		reverseString(a);
+	}
+	 public static void reverseString(char[] s) {
+	        int st = 0;
+	        int et = s.length-1;
+	        for(char a:(reverse(s,st,et))){
+	        	System.out.println(a);
+	        }
+	    }
+	 public static char[] reverse(char[]str,int s,int e) {
+		 if(s>=e) {
+			 return str;
+		 }
+		 char temp = str[s];
+		 str[s] = str[e];
+		 str[e] = temp;
+		 return reverse(str,++s,--e);
+	 }
+}
