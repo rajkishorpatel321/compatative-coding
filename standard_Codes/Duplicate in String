@@ -1,0 +1,30 @@
+package recursion;
+
+import java.util.Stack;
+
+public class recurtion {
+
+	public static void main(String[] args) {
+		String s = "abcaadcacdacdasdcaz";
+		boolean [] arr = new boolean[26];
+		String t =findDuplicate(s,0,arr);
+		System.out.println(t);
+	}
+	public static String charRemoveAt(String str, int p) {  
+        return str.substring(0, p) + str.substring(p + 1);  
+     }  
+	 public static String findDuplicate(String s , int index ,boolean[] arr) {
+		 if(index==s.length()) {
+			 return s;
+		 }
+		 int a= s.charAt(index)-97;
+		 if(!arr[a]) {
+			 arr[a]=true;
+		 }
+		 else {
+			 s = charRemoveAt(s,index);
+			 index--;
+		 }
+		 return findDuplicate(s,++index,arr);
+	 }
+}
