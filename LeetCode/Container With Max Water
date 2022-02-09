@@ -1,0 +1,26 @@
+class Solution {
+    public static int maxArea(int[] height) {
+	   return max(height,0,height.length-1,0);
+    }
+   public static int max(int[] arr,int start,int end,int ans) {
+	   if(start==end){
+		   return ans;
+	   }
+	   int temp=0;
+	   if(arr[start]>arr[end]) {
+		   temp = arr[end]*(end-start);
+		   if(temp>ans) {
+			   ans = temp;
+		   }
+		   return max(arr,start,end-1,ans);
+	   }
+	   else {
+		   temp = arr[start]*(end-start);
+		   if(temp>ans) {
+			   ans = temp;
+		   }
+		   return max(arr,start+1,end,ans);
+	   }
+	   
+   }
+}
