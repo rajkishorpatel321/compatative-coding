@@ -1,0 +1,29 @@
+package Solution;
+
+public class binarySerch {
+
+	public static void main(String[] args) {
+		int arr[] = { 2, 3, 4, 10, 40 ,89 };
+		System.out.println(binarry(arr,(arr.length)/2,0));
+
+	}
+	public static int binarry(int [] arr, int m,int x) {
+		if(arr[m]==x) {
+			return m;
+		}
+		if(m<=0) {
+			return -1;
+		}
+		if(arr[arr.length-1]<x) {
+			return -1;
+		}
+		if(arr[m]>x) {
+			return binarry(arr,((m)/2),x);
+		}
+		if(arr[m]<x) {
+			return binarry(arr,(arr.length+m)/2,x);
+		}
+		return -1;
+	}
+
+}
